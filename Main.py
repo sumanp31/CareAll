@@ -341,7 +341,7 @@ if i.capitalize() == 'Y':
          print ("Enter your fee")
          fee = input()
          
-         df = pd.read_csv("oldies.csv")
+         df = pd.read_csv("oldies.csv", index_col = 0)
          info = [len(df)+1, name , age, req, fee, "yes", [], 0, 0, []]
          df.loc[len(df),:] = info
          
@@ -358,7 +358,7 @@ if i.capitalize() == 'Y':
          print ("Enter your fee")
          fee = input()
          
-         df = pd.read_csv("caretaker.csv")
+         df = pd.read_csv("caretaker.csv", index_col = 0)
          info = [len(df)+1, name , age, fee, "yes", [], 0, 0, [], []]
          df.loc[len(df),:] = info
          
