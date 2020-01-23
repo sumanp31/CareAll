@@ -1,0 +1,10 @@
+,id,Name,Age,Requirement,Fee,Avaibility,id of Caretaker,Rating,No of Ratings,list of Application
+0,1.0,A,72.0,General,2000.0,no,[3],4.0,1.0,[]
+1,2.0,J,69.0,General with Cooking,3500.0,yes,[3],3.5,4.0,[]
+2,3.0,F,75.0,General with Walks,2000.0,yes,[1],3.0,9.0,[1]
+3,4.0,L,67.0,General with medications,3000.0,yes,[1],3.5,4.0,[1]
+4,5.0,M,70.0,General,1500.0,yes,[1],4.0,5.0,[]
+5,6.0,Q,75.0,"General with Cooking,walking and medication",7000.0,yes,[2],4.5,2.0,"[2, 4]"
+6,7.0,V,72.0,General with Cooking,2000.0,yes,[2],5.0,3.0,[]
+7,8.0,G,74.0,General,1700.0,yes,[4],2.5,4.0,[]
+8,9.0,s,73,General,1200,yes,[],0.0,0.0,[]
