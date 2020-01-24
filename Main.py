@@ -28,14 +28,10 @@ class Oldies():
         print ("Updating your profile")
         df = pd.read_csv("oldies.csv", index_col = 0)
         
-        print ("Enter Name")
-        name = input()
-        print ("Enter Age")
-        age = int(input())
-        print ("Enter Requirement")
-        req = input()
-        print ("Enter the maximum fee")
-        fee = int(input())
+        name = input("Enter Name")
+        age = int(input("Enter Age"))
+        req = input("Enter Requirement")
+        fee = int(input("Enter the maximum fee"))
         
         #Update class variales
         self.name = name
@@ -53,8 +49,7 @@ class Oldies():
     #Function to check the list of Applicants
     def appList(self):
         
-        print ("Do you want to check the list of apllication? Y/n")
-        i = input()
+        i = input("Do you want to check the list of apllication? Y/n ")
         if i.capitalize() == "Y":
             df_c = pd.read_csv("caretaker.csv", index_col = 0)
             df_c.drop(["id of Oldies", "No of Ratings"], axis=1, inplace = True)
@@ -70,10 +65,8 @@ class Oldies():
     def chooseCaretaker(self, id):
         if self.app_list == '[]':
              return None
-        
-        
-        print ("Enter the id of the caretaker you chose:")
-        c = int(input())
+
+        c = int(input("Enter the id of the caretaker you chose:"))
         l = self.caretaker
         df = pd.read_csv("oldies.csv", index_col = 0)
         print ("Adding Caretaker to your profile")
@@ -127,8 +120,7 @@ class Oldies():
             df_c = df_c[df_c["id"] == int(self.caretaker)].values[0]
             user_C = Caretaker(df_c[1:])
             
-            print ("Enter Your Rating out of 5:")
-            r = int(input())
+            r = int(input("Enter Your Rating out of 5: "))
             user_C.rating = ((float(user_C.rating) * user_C.No_of_rating) + r) / (user_C.No_of_rating+1)
             user_C.No_of_rating = user_C.No_of_rating +1
             df_c = pd.read_csv("caretaker.csv", index_col = 0)
@@ -155,12 +147,11 @@ class Caretaker():
         print ("Updating your profile")
         df = pd.read_csv("caretaker.csv", index_col = 0)
         
-        print ("Enter Name")
-        name = input()
-        print ("Enter Age")
+        name = input("Enter Name")
+        print ()
         age = int(input())
-        print ("Enter the maximum fee")
-        fee = int(input())
+        print ()
+        fee = int(input("Enter the maximum fee"))
         
         #Update class variales
         self.name = name
@@ -181,11 +172,9 @@ class Caretaker():
         df_o.drop(["No of Ratings", "list of Application", "id of Caretaker"], axis=1, inplace = True)
         print (df_o)
         
-        print ("Do you want to apply for one of the positions?Y/n")
-        r = input()
+        r = input("Do you want to apply for one of the positions?Y/n")
         if r.capitalize() == "Y":
-            print ("Enter the new oldie's id")
-            id_o = int(input())
+            id_o = int(input("Enter the new oldie's id"))
             df = pd.read_csv("caretaker.csv", index_col = 0)
             l = df.loc[id, "list of application"]
             print ("Updating list of Application")
@@ -221,15 +210,13 @@ class Caretaker():
             print("\nNo Caretaker to Rate")
         else:
             print ("Here is the list of Oldies you take care of:", self.oldies)
-            print ("Enter the id of the Oldie you want to rate:")
-            id = int(input())
+            id = int(input("Enter the id of the Oldie you want to rate: "))
             
             df_o = pd.read_csv("oldies.csv")
             df_o = df_o[df_o["id"] == id].values[0]
             user_o = Oldies(df_o[1:])
             
-            print ("Enter Your Rating out of 5:")
-            r = int(input())
+            r = int(input("Enter Your Rating out of 5: "))
             user_o.rating = ((float(user_o.rating) * user_o.No_of_rating) + r) / (user_o.No_of_rating+1)
             user_o.No_of_rating = user_o.No_of_rating +1
             df_o = pd.read_csv("oldies.csv", index_col = 0)
@@ -258,9 +245,8 @@ def oldiesFunc(id):
     print ("1. Update Profile")
     print ("2. Choose an Applicant")
     print ("3. Rate your Caretaker")
-    print ("Enter your option number")
     
-    c = int(input())
+    c = int(input("Enter your option number"))
     
     if c == 1:
         user.updateProfile(id)
@@ -271,10 +257,6 @@ def oldiesFunc(id):
         user.rate()
         
         
-        
-    
-
-
 def caretakerFunc(id):
     """
     All functions regarding caretakers
@@ -295,9 +277,8 @@ def caretakerFunc(id):
     print ("2. Apply for caretaking position")
     print ("3. Check for application acceptance")
     print ("4. Rate your Oldie")
-    print ("Enter your option number")
-    
-    c = int(input())
+
+    c = int(input("Enter your option number"))
     
     if c == 1:
         user.updateProfile(id)
@@ -323,23 +304,17 @@ elif u.capitalize() == "C":
 
 print ("Welcome " + user_type)
 
-print ("Are you new?Y/n")
-i = input()
+i = input("Are you new?Y/n")
 
 if i.capitalize() == 'Y':
     if user_type == "Oldies":
          """
          Initialize a new Oldie
          """
-         
-         print ("Enter your name")
-         name = input()
-         print ("Enter your age")
-         age = input()
-         print ("Enter your requirement")
-         req = input()
-         print ("Enter your fee")
-         fee = input()
+         name = input("Enter your name")
+         age = input("Enter your age")
+         req = input("Enter your requirement")
+         fee = input("Enter your fee")
          
          df = pd.read_csv("oldies.csv", index_col = 0)
          info = [len(df)+1, name , age, req, fee, "yes", [], 0, 0, []]
@@ -351,12 +326,9 @@ if i.capitalize() == 'Y':
          """
          Initialize a new caretaker
          """
-         print ("Enter your name")
-         name = input()
-         print ("Enter your age")
-         age = input()
-         print ("Enter your fee")
-         fee = input()
+         name = input("Enter your name")
+         age = input("Enter your age")
+         fee = input("Enter your fee")
          
          df = pd.read_csv("caretaker.csv", index_col = 0)
          info = [len(df)+1, name , age, fee, "yes", [], 0, 0, [], []]
@@ -367,8 +339,7 @@ if i.capitalize() == 'Y':
 
 else:
 
-    print ("Please Enter your id to login")
-    user_id = int(input())
+    user_id = int(input("Please Enter your id to login"))
     print ("\nRetreiving your info")
     if user_type == "Oldies":
         oldiesFunc(user_id)
